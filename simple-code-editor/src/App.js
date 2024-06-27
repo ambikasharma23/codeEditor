@@ -6,7 +6,7 @@ import './editor.css';
 function App() {
   return (
     <div className="App">
-      <h1>Simple Code Editor</h1>
+      <h1>React code editor</h1>
       <CodeEditor />
     </div>
   );

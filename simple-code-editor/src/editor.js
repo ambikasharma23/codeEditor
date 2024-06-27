@@ -21,23 +21,20 @@ const CodeEditor = () => {
       const textBeforeCursor = code.slice(0, cursorPosition);
       const textAfterCursor = code.slice(cursorPosition);
 
-      // Match an opening tag that has just been typed
       const match = textBeforeCursor.match(/<([a-zA-Z0-9]+)(?=\s|>|$)/);
       if (match) {
         const tagName = match[1];
         const closingTag = `</${tagName}>`;
 
-        // Insert the closing tag after the cursor
         const newCode = textBeforeCursor + '>' + closingTag + textAfterCursor;
         setCode(newCode);
 
-        // Move the cursor back to the position after the opening tag
         setTimeout(() => {
           e.target.selectionStart = cursorPosition + 1;
           e.target.selectionEnd = cursorPosition + 1;
         }, 0);
 
-        // Prevent the default '>' character from being added
+        
         e.preventDefault();
       }
     }
